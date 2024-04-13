@@ -1,6 +1,0 @@
-.my-fixed-button {
-    position: fixed;
-    bottom: 70px; /* Ajustez la distance du bas selon vos besoins */
-    left: 50px; /* Ajustez la distance de la gauche selon vos besoins */
-    z-index: 1000; /* Assurez-vous que le bouton est au-dessus des autres éléments */
-  }
