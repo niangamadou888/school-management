@@ -1,0 +1,42 @@
+<style>
+    .my-fixed-button {
+    position: fixed;
+    bottom: 70px; /* Ajustez la distance du bas selon vos besoins */
+    left: 50px; /* Ajustez la distance de la gauche selon vos besoins */
+    z-index: 1000; /* Assurez-vous que le bouton est au-dessus des autres éléments */
+  }
+</style>
+
+<h2>Student List</h2>
+<table class="table table-striped" style="margin-bottom: 100px;max-height: 100px;overflow-y: auto;">
+    <thead>
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birthdate</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let student of students;let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ student.firstName }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.birthdate | date}}</td>
+            <td>{{ student.phone }}</td>
+            <td>
+                <button *ngIf="isLoggedIn" (click)="updateStudent(student.id)" class="btn btn-info">Update</button>
+                <button *ngIf="isLoggedIn" (click)="deleteStudent(student.id)" class="btn btn-danger" style="margin-left: 10px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1z"/>
+                  </svg> Delete</button>
+                <button (click)="studentDetails(student.id)" class="btn btn-danger" style="margin-left: 10px">View</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<button *ngIf="isLoggedIn" (click)="goToCreateStudent()" type="button" class="bi bi-plus-circle-fill btn btn-success my-fixed-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+  </svg> Add Student</button>

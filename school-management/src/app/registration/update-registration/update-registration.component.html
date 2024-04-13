@@ -1,0 +1,32 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Update Registration</h3>
+    <form (ngSubmit) = "onSubmit()">
+        <div class="form-group">
+            <label>Details</label>
+            <input type="text" class="form-control" id="details" [(ngModel)] = "registration.details" name="details">
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+            <label>Student</label><br>
+            <select name="student_name" id="student_name" [(ngModel)] = "registration.studentName">
+                <option>Select the student</option>
+                <option *ngFor = "let student of students">{{student.firstName}} {{student.lastName}}</option>
+            </select>
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+            <label>Cour</label><br>
+            <select name="cour_name" id="cour_name" [(ngModel)] = "registration.courName">
+                <option>Select the course</option>
+                <option *ngFor = "let cour of cours">{{cour.name}}</option>
+            </select>
+        </div>
+        <div class="form-group" style="margin-top: 20px;">
+            <label>Year</label><br>
+            <select name="year" id="year" [(ngModel)] = "registration.year">
+                <option>Select the year</option>
+                <option *ngFor = "let year of years">{{year.name}}</option>
+            </select>
+        </div>
+    
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+    </div>
