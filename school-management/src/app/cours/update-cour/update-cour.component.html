@@ -1,0 +1,15 @@
+<div class="col-md-6 offset-md-3">
+    <h3>Update Cour</h3>
+    <form (ngSubmit) = "onSubmit()">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)] = "cour.name" name="firstName">
+        </div>
+        <div class="form-group">
+            <label>Programme</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)] = "cour.programme" name="lastName">
+        </div>
+    
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+    </div>
